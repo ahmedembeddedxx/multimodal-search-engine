@@ -39,7 +39,7 @@ or
 Clone the repository:
 
    ```bash
-   git clone https://github.com/ahmedembeddedx/Multi-Modal_Search_Engine.git
+   git clone https://github.com/ahmedembeddedxx/multimodal-search-engine.git
    ```
 
 
