@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Modal Search Engine</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            font-family: monospace;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #ffb84d;
+            color: black;
+        }
+        h1 {
+            margin-top: 50px;
+            color: #333;
+            
+        }
+        form {
+            margin-top: 20px;
+            background-color: #f89969;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 25%;
+            margin: auto;
+        }
+        label {
+            margin-top: 10px;
+            display: block;
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="text"] {
+            margin-top: 5px;
+            width: calc(100% - 20px);
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: monospace;
+        }
+        input[type="submit"] {
+            margin-top: 20px;
+            width: 50%;
+            padding: 10px;
+            font-family: monospace;
+            background-color: #5f6062;
+            color: white;
+            border: 2px solid #5f6062;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        input[type="submit"]:hover {
+            background-color: #ffb84d;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-decoration: underline;">Multi Modal Search Engine</h1>
+    <form action="/" method="post">
+        <label for="text_query" style="text-align: left;">Enter Text Query:</label>
+        <input type="text" id="text_query" name="text_query" placeholder="Query through images..." required>
+        <input type="submit" value="Search">
+    </form>
+    <br>
+    <br>
+
+    <h1 style="text-decoration: underline;">Search Results for '{{text_query}}'</h1>
+    {% if top_images %}
+        {% for image_path, image, similarity_score in top_images %}
+            <img src = "{{image_path}}" alt="{{image_path}}" width="300">
+
+        {% endfor %}
+    {% else %}
+        <p>No matching images found.</p>
+    {% endif %}
+
+    <footer>
+        <hr>
+        <p>Multi-Modal_Search_Engine</p>
+        <p>Powered by <a href="https://github.com/openai/CLIP" target="_blank">CLIP</a></p>
+        <a href="https://github.com/ahmedembeddedx/Multi-Modal_Search_Engine/"><img src="https://cdn-icons-png.freepik.com/512/919/919847.png?ga=GA1.1.1925836337.1709750745&amp;" alt="" height="40"></a>
+    </footer>
+
+
+</body>
+</html>
